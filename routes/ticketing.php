@@ -4,15 +4,15 @@ use App\Http\Controllers\Ticketing\TicketController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/',  [TicketController::class,'create'])->name('tickets.create');
-Route::get('/home', function () {
-  $route = Gate::denies('dashboard_access') ? 'admin.tickets.index' : 'admin.home';
-  if (session('status')) {
-    return redirect()->route($route)->with('status', session('status'));
-  }
-
-  return redirect()->route($route);
-});
+Route::get('/tickets/create',  [TicketController::class,'create'])->name('tickets.create');
+//Route::get('/home', function () {
+//  $route = Gate::denies('dashboard_access') ? 'admin.tickets.index' : 'admin.home';
+//  if (session('status')) {
+//    return redirect()->route($route)->with('status', session('status'));
+//  }
+//
+//  return redirect()->route($route);
+//});
 
 //Auth::routes(['register' => false]);
 
@@ -20,8 +20,8 @@ Route::post('tickets/media', [TicketController::class, 'storeMedia'])->name('tic
 Route::post('tickets/comment/{ticket}',  [TicketController::class, 'storeComment'])->name('tickets.storeComment');
 Route::resource('tickets', 'Ticketing\TicketController')->only(['show', 'create', 'store']);
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
-  Route::get('/', 'HomeController@index')->name('home');
+//Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
+//  Route::get('/', 'HomeController@index')->name('home');
   // Permissions
   Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
   Route::resource('permissions', 'PermissionsController');
@@ -58,4 +58,4 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
   // Audit Logs
   Route::resource('audit-logs', 'AuditLogsController', ['except' => ['create', 'store', 'edit', 'update', 'destroy']]);
-});
+//});

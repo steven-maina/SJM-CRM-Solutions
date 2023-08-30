@@ -5,7 +5,7 @@ $configData = Helper::appClasses();
 
 @extends('layouts/layoutMaster')
 
-@section('title', 'Register Cover - Pages')
+@section('title', 'Register')
 
 @section('vendor-style')
 <!-- Vendor -->
@@ -46,7 +46,7 @@ $configData = Helper::appClasses();
       <div class="w-px-400 mx-auto">
         <!-- Logo -->
         <div class="app-brand mb-4">
-          <a href="{{url('/')}}" class="app-brand-link gap-2">
+          <a href="{{url('/register')}}" class="app-brand-link gap-2">
             <span class="app-brand-logo demo">@include('_partials.macros',["height"=>20,"withbg"=>'fill: #fff;'])</span>
           </a>
         </div>
@@ -54,7 +54,7 @@ $configData = Helper::appClasses();
         <h3 class="mb-1 fw-bold">Adventure starts here 🚀</h3>
         <p class="mb-4">Make your app management easy and fun!</p>
 
-        <form id="formAuthentication" class="mb-3" action="{{url('/')}}" method="POST">
+        <form id="formAuthentication" class="mb-3" action="{{url('/register')}}" method="POST">
           <div class="mb-3">
             <label for="username" class="form-label">Username</label>
             <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" autofocus>
@@ -87,28 +87,28 @@ $configData = Helper::appClasses();
 
         <p class="text-center">
           <span>Already have an account?</span>
-          <a href="{{url('auth/login-cover')}}">
+          <a href="{{url('login')}}">
             <span>Sign in instead</span>
           </a>
         </p>
 
-        <div class="divider my-4">
-          <div class="divider-text">or</div>
-        </div>
+{{--        <div class="divider my-4">--}}
+{{--          <div class="divider-text">or</div>--}}
+{{--        </div>--}}
 
-        <div class="d-flex justify-content-center">
-          <a href="javascript:;" class="btn btn-icon btn-label-facebook me-3">
-            <i class="tf-icons fa-brands fa-facebook-f fs-5"></i>
-          </a>
+{{--        <div class="d-flex justify-content-center">--}}
+{{--          <a href="javascript:;" class="btn btn-icon btn-label-facebook me-3">--}}
+{{--            <i class="tf-icons fa-brands fa-facebook-f fs-5"></i>--}}
+{{--          </a>--}}
 
-          <a href="javascript:;" class="btn btn-icon btn-label-google-plus me-3">
-            <i class="tf-icons fa-brands fa-google fs-5"></i>
-          </a>
+{{--          <a href="javascript:;" class="btn btn-icon btn-label-google-plus me-3">--}}
+{{--            <i class="tf-icons fa-brands fa-google fs-5"></i>--}}
+{{--          </a>--}}
 
-          <a href="javascript:;" class="btn btn-icon btn-label-twitter">
-            <i class="tf-icons fa-brands fa-twitter fs-5"></i>
-          </a>
-        </div>
+{{--          <a href="javascript:;" class="btn btn-icon btn-label-twitter">--}}
+{{--            <i class="tf-icons fa-brands fa-twitter fs-5"></i>--}}
+{{--          </a>--}}
+{{--        </div>--}}
       </div>
     </div>
     <!-- /Register -->
