@@ -14,14 +14,14 @@ class RolesTableSeeder extends Seeder
       public function run()
     {
       $roles = [
-        [
-          'id'    => 1,
-          'title' => 'Admin',
-        ],
-        [
-          'id'    => 4,
-          'title' => 'Super',
-        ],
+//        [
+//          'id'    => 1,
+//          'title' => 'Admin',
+//        ],
+//        [
+//          'id'    => 4,
+//          'title' => 'Super',
+//        ],
         [
           'id'    => 2,
           'title' => 'Agent',

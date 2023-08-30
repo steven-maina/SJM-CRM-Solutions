@@ -22,22 +22,26 @@ class UserSeeder extends Seeder
     {
         $code=Str::random(20);
         $business_code=Str::random(20);
+      $role = Role::create(['name' => 'admin']);
+
         $user = User::create([
             'name' => 'Admin',
             'email' => 'admin@themesbrand.com',
             'phone_number'=> '0708737839',
             'user_code'=>$code,
             'account_code'=>$business_code,
-//            'role_id'=>2,
+            'role_id'=>$role->id,
             'status'=>'Active',
             'password' => Hash::make(12345678),
             'created_at' => now(),
             'created_by' => 1,
         ]);
-        $role = Role::create(['name' => 'admin']);
         $permissions = Permission::pluck('id', 'id')->all();
         $role->syncPermissions($permissions);
-        $user->assignRole([$role->id]);
+//        $user->assignRole([$role->id]);
+
+
+      $role = Role::create(['name' => 'super user']);
         $code=Str::random(10);
         $user = User::create([
             'name' => 'stephen',
@@ -45,7 +49,7 @@ class UserSeeder extends Seeder
             'phone_number'=> '0710767015',
             'user_code'=>$code,
             'account_code'=>$business_code,
-//            'role_id'=>1,
+            'role_id'=>$role->id,
             'status'=>'Active',
             'password' => Hash::make('password'),
             'created_at' => now(),
@@ -54,6 +58,6 @@ class UserSeeder extends Seeder
         $role = Role::create(['name' => 'superuser']);
         $permissions = Permission::pluck('id', 'id')->all();
         $role->syncPermissions($permissions);
-        $user->assignRole([$role->id]);
+//        $user->assignRole([$role->id]);
     }
 }

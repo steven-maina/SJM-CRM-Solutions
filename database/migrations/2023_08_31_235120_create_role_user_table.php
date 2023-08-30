@@ -15,6 +15,7 @@ return new class extends Migration
 //      $table->id();
       $table->unsignedBigInteger('role_id');
       $table->unsignedBigInteger('user_id');
+      //$table->unsignedBigInteger('team_id');
       $table->timestamps();
 
       $table->primary(['role_id', 'user_id']);
