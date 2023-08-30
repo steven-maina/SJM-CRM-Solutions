@@ -43,6 +43,8 @@ class FortifyServiceProvider extends ServiceProvider
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
 
+
+
       Fortify::loginView(function () {
         $pageConfigs = ['myLayout' => 'blank'];
         return view('content.authentications.auth-login-cover', ['pageConfigs' => $pageConfigs]);
@@ -52,13 +54,17 @@ class FortifyServiceProvider extends ServiceProvider
         return view('content.authentications.auth-register-cover', ['pageConfigs' => $pageConfigs]);
       });
       Fortify::requestPasswordResetLinkView(function () {
-        return view('content.authentications.auth-forgot-password-basic');
+        $pageConfigs = ['myLayout' => 'blank'];
+        return view('content.authentications.auth-forgot-password-cover', ['pageConfigs' => $pageConfigs]);
       });
       Fortify::resetPasswordView(function (Request $request) {
-        return view('content.authentications.auth-reset-password-basic', ['request' => $request]);
+        $pageConfigs = ['myLayout' => 'blank'];
+        return view('content.authentications.auth-reset-password-cover', ['pageConfigs' => $pageConfigs]);
       });
       Fortify::verifyEmailView(function () {
-        return view('content.authentications.auth-verify-email-basic');
+        $pageConfigs = ['myLayout' => 'blank'];
+        return view('content.authentications.auth-verify-email-cover', ['pageConfigs' => $pageConfigs]);
+
       });
 
     }

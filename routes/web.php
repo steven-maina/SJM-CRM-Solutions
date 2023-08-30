@@ -20,7 +20,8 @@ require __DIR__ . '/ticketing.php';
 $controller_path = 'App\Http\Controllers';
 
 // Main Page Route
-Route::match(['get', 'head'], '/', $controller_path . '\dashboard\Analytics@index')->name('dashboard-analytics');
+Route::get('/home',  $controller_path . '\dashboard\Analytics@index')->name('home');
+Route::get('/',  $controller_path . '\dashboard\Analytics@index')->name('dashboard');
 Route::get('/dashboard/analytics', $controller_path . '\dashboard\Analytics@index')->name('dashboard-analytics');
 Route::get('/dashboard/crm', $controller_path . '\dashboard\Crm@index')->name('dashboard-crm');
 Route::get('/dashboard/ecommerce', $controller_path . '\dashboard\Ecommerce@index')->name('dashboard-ecommerce');
