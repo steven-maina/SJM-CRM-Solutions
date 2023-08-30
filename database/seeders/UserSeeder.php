@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
 
         $user = User::create([
             'name' => 'Admin',
-            'email' => 'admin@themesbrand.com',
+            'email' => 'admin@admin.com',
             'phone_number'=> '0708737839',
             'user_code'=>$code,
             'account_code'=>$business_code,

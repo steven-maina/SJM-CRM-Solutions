@@ -2,7 +2,7 @@
 
 namespace App\Models\Ticketing;
 
-use App\Models\Status;
+
 use App\Models\User;
 use App\Notifications\CommentEmailNotification;
 use App\Scopes\AgentScope;
@@ -109,7 +109,7 @@ class Ticket extends Model implements HasMedia
 
     public function sendCommentNotification($comment)
     {
-        $users = \App\User::where(function ($q) {
+        $users = User::where(function ($q) {
                 $q->whereHas('roles', function ($q) {
                     return $q->where('title', 'Agent');
                 })
