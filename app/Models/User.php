@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Ticketing\Comment;
+use App\Models\Ticketing\Ticket;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -35,12 +37,33 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+  protected $casts = [
+    'email_verified_at' => 'datetime',
+  ];
+
+  /**
+   * The accessors to append to the model's array form.
+   *
+   * @var array<int, string>
+   */
+  protected $appends = [
+    'profile_photo_url',
+  ];
+  public function createdByUser()
+  {
+    return $this->belongsTo(User::class, 'created_by', 'user_code');
+  }
+  public function roles(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+  {
+    return $this->belongsToMany(Role::class);
+  }
+  public function tickets()
+  {
+    return $this->hasMany(Ticket::class, 'assigned_to_user_id', 'id');
+  }
+
+  public function comments()
+  {
+    return $this->hasMany(Comment::class, 'user_id', 'id');
+  }
 }

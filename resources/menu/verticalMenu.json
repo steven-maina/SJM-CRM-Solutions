@@ -826,11 +826,10 @@
       "menuHeader": "Misc"
     },
     {
-      "url": "https://pixinvent.ticksy.com/",
+      "url": "tickets",
       "icon": "menu-icon tf-icons ti ti-lifebuoy",
       "name": "Support",
-      "slug": "support",
-      "target": "_blank"
+      "slug": "support"
     },
     {
       "url": "https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/documentation/laravel-introduction.html",

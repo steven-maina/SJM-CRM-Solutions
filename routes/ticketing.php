@@ -1,6 +1,8 @@
 <?php
 
+
 use App\Http\Controllers\Ticketing\TicketController;
+use App\Http\Controllers\Ticketing\TicketsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -47,10 +49,10 @@ Route::resource('tickets', 'Ticketing\TicketController')->only(['show', 'create'
   Route::resource('categories', 'CategoriesController');
 
   // Tickets
-  Route::delete('tickets/destroy', 'TicketsController@massDestroy')->name('tickets.massDestroy');
-  Route::post('tickets/media', 'TicketsController@storeMedia')->name('tickets.storeMedia');
-  Route::post('tickets/comment/{ticket}', 'TicketsController@storeComment')->name('tickets.storeComment');
-  Route::resource('tickets', 'TicketsController');
+  Route::delete('tickets/destroy', [TicketsController::class, 'massDestroy'])->name('tickets.massDestroy');
+  Route::post('tickets/media', [TicketsController::class, 'storeMedia'])->name('tickets.storeMedia');
+  Route::post('tickets/comment/{ticket}', [TicketsController::class, 'storeComment'])->name('tickets.storeComment');
+  Route::resource('tickets', TicketsController::class);
 
   // Comments
   Route::delete('comments/destroy', 'CommentsController@massDestroy')->name('comments.massDestroy');
