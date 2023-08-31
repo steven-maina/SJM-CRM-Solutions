@@ -11,7 +11,7 @@ class StoreStatusRequest extends FormRequest
 {
     public function authorize()
     {
-        abort_if(Gate::denies('status_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        //abort_if(Gate::denies('status_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
     }

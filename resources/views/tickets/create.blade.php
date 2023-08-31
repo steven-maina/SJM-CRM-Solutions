@@ -1,6 +1,6 @@
 @extends('layouts/layoutMaster')
 
-@section('title', 'Chat - Apps')
+@section('title', 'Create - Tickets')
 
 @section('vendor-style')
   <link rel="stylesheet" href="{{asset('assets/vendor/libs/quill/katex.css')}}" />

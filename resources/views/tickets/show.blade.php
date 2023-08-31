@@ -1,5 +1,27 @@
-@extends('layouts.app')
+@extends('layouts/layoutMaster')
 
+@section('title', 'Show - Tickets')
+
+@section('vendor-style')
+  <link rel="stylesheet" href="{{asset('assets/vendor/libs/quill/katex.css')}}" />
+  <link rel="stylesheet" href="{{asset('assets/vendor/libs/quill/editor.css')}}" />
+  <link rel="stylesheet" href="{{asset('assets/vendor/libs/select2/select2.css')}}" />
+@endsection
+
+@section('page-style')
+  <link rel="stylesheet" href="{{asset('assets/vendor/css/pages/app-email.css')}}" />
+@endsection
+
+@section('vendor-script')
+  <script src="{{asset('assets/vendor/libs/quill/katex.js')}}"></script>
+  <script src="{{asset('assets/vendor/libs/quill/quill.js')}}"></script>
+  <script src="{{asset('assets/vendor/libs/select2/select2.js')}}"></script>
+  <script src="{{asset('assets/vendor/libs/block-ui/block-ui.js')}}"></script>
+@endsection
+
+@section('page-script')
+  <script src="{{asset('assets/js/app-email.js')}}"></script>
+@endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
