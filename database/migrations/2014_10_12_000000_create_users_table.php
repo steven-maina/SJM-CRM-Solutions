@@ -15,18 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('phone_number')->unique();
-            $table->string('user_code')->unique();
-            $table->string('account_code');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('role_id');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
-            $table->enum('status', ['Active', 'Inactive'])->nullable();
-            $table->string('created_by');
-            $table->string('updated_by')->nullable();
             $table->timestamps();
         });
     }

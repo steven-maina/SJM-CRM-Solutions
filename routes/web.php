@@ -14,7 +14,11 @@ use App\Http\Controllers\laravel_example\UserManagement;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::middleware(['auth'])->group(function () {
+Route::middleware([
+  'auth:sanctum',
+  config('jetstream.auth_session'),
+  'verified',
+])->group(function () {
   require __DIR__ . '/ticketing.php';
 
 
@@ -198,4 +202,12 @@ Route::middleware(['auth'])->group(function () {
 // laravel example
   Route::get('/laravel/user-management', [UserManagement::class, 'UserManagement'])->name('laravel-example-user-management');
   Route::resource('/user-list', UserManagement::class);
+//});
+
+
+
+
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 });
