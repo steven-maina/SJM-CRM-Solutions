@@ -156,4 +156,4 @@ mix.version();
  | Refer official documentation for more information: https://laravel.com/docs/10.x/mix#browsersync-reloading
  */
 
-mix.browserSync('http://127.0.0.1:8000/');
+mix.browserSync('http://127.0.0.1:8003/');

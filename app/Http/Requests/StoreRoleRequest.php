@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Role;
+use App\Models\Role;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,7 +11,7 @@ class StoreRoleRequest extends FormRequest
 {
     public function authorize()
     {
-        abort_if(Gate::denies('role_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('role-add'), redirect()->route('unauthorized'));
 
         return true;
     }
@@ -19,15 +19,8 @@ class StoreRoleRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'         => [
+            'name'         => [
                 'required',
-            ],
-            'permissions.*' => [
-                'integer',
-            ],
-            'permissions'   => [
-                'required',
-                'array',
             ],
         ];
     }

@@ -8,7 +8,8 @@
         {
           "url": "/dashboard/analytics",
           "name": "Analytics",
-          "slug": "dashboard-analytics"
+          "slug": "dashboard-analytics",
+          "role": "dev"
         },
         {
           "url": "/dashboard/crm",
@@ -48,6 +49,32 @@
             "url": "/app/access-permission",
             "name": "Permission",
             "slug": "app-access-permission"
+          }
+        ]
+      }
+      ]
+    },
+
+    {
+      "url": "/pricing",
+      "icon": "menu-icon tf-icons ti ti-credit-card",
+      "name": "Pricing",
+      "slug": "pages-pricing"
+    },
+    {
+      "name": "Accounts Settings",
+      "icon": "menu-icon tf-icons ti ti-settings",
+      "slug": "accounts-management",
+      "submenu": [
+        {
+        "name": "Billing & ",
+        "icon": "menu-icon tf-icons ti ti-settings",
+        "slug": "billing-plans",
+        "submenu": [
+          {
+            "url": "/app/billing-plans",
+            "name": "Plans",
+            "slug": "app-access-roles"
           }
         ]
       }
@@ -135,6 +162,7 @@
               "name": "Security",
               "slug": "app-user-view-security"
             },
+
             {
               "url": "/app/user/view/billing",
               "name": "Billing & Plans",
@@ -200,6 +228,11 @@
               "slug": "pages-account-settings-security"
             },
             {
+              "url": "pages/pricing",
+              "name": "Pricing",
+              "slug": "pages-pricing"
+            },
+            {
               "url": "/pages/account-settings-billing",
               "name": "Billing & Plans",
               "slug": "pages-account-settings-billing"
@@ -241,11 +274,6 @@
               "slug": "pages-help-center-article"
             }
           ]
-        },
-        {
-          "url": "/pages/pricing",
-          "name": "Pricing",
-          "slug": "pages-pricing"
         },
         {
           "name": "Misc",

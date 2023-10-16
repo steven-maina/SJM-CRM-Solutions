@@ -17,6 +17,7 @@ return new class extends Migration
           $table->string('logo', 2048)->nullable();
           $table->string('city')->nullable();
           $table->string('address')->nullable();
+          $table->string('subscription_id')->nullable();
           $table->geometry('positions')->nullable();
           $table->integer('created_by')->nullable();
           $table->integer('updated_by')->nullable();
